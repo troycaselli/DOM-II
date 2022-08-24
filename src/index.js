@@ -12,8 +12,8 @@ homeLink.addEventListener('mouseleave', (event) => {
     event.target.textContent = 'Home';
 })
 
-const copyright = document.querySelector('footer p');
 
+const copyright = document.querySelector('footer p');
 
 document.addEventListener('keydown', function(event) {
     if(event.key === '-') {
@@ -25,9 +25,21 @@ document.addEventListener('keydown', function(event) {
     } 
 })
 
+
 const mainNav = document.querySelector('.main-navigation');
 
 document.addEventListener('scroll', event => {
     mainNav.style.backgroundColor = '#345678';
 })
 
+window.addEventListener('load', event => console.log(`Page is loaded!`));
+
+const input = document.querySelector('input');
+
+input.addEventListener('focus', (event) => {
+    event.target.style.backgroundColor = '#83C3E9';
+})
+
+input.addEventListener('blur', (event) => {
+    event.target.style.background = '';
+})
