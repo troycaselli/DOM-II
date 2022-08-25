@@ -2,14 +2,30 @@ import './less/index.less'
 
 // Your code goes here!
 
-const homeLink = document.querySelector('.main-navigation a:nth-of-type(1)');
+const linkArr = Array.from(document.querySelectorAll('.main-navigation a'));
 
-homeLink.addEventListener('mouseover', (event) => {
+linkArr.forEach(link => {
+    link.addEventListener('mouseover', (event) => {
     event.target.textContent = 'Poof!';
+    })
 })
 
+const homeLink = document.querySelector('.nav a:nth-of-type(1)');
+const aboutLink = document.querySelector('.nav a:nth-of-type(2)');
+const blogLink = document.querySelector('.nav a:nth-of-type(3)');
+const contactLink = document.querySelector('.nav a:nth-of-type(4)');
+
 homeLink.addEventListener('mouseleave', (event) => {
-    event.target.textContent = 'Home';
+    homeLink.textContent = 'Home';
+})
+aboutLink.addEventListener('mouseleave', (event) => {
+    aboutLink.textContent = 'About Us';
+})
+blogLink.addEventListener('mouseleave', (event) => {
+    blogLink.textContent = 'Blog';
+})
+contactLink.addEventListener('mouseleave', (event) => {
+    contactLink.textContent = 'Contact';
 })
 
 
@@ -29,17 +45,41 @@ document.addEventListener('keydown', function(event) {
 const mainNav = document.querySelector('.main-navigation');
 
 document.addEventListener('scroll', event => {
-    mainNav.style.backgroundColor = '#345678';
+    mainNav.style.backgroundColor = '#FFEBCD';
 })
 
 window.addEventListener('load', event => console.log(`Page is loaded!`));
 
-const input = document.querySelector('input');
+const input = document.querySelector('form #location');
 
 input.addEventListener('focus', (event) => {
-    event.target.style.backgroundColor = '#83C3E9';
+    event.target.style.backgroundColor = '#17A2B8';
 })
 
 input.addEventListener('blur', (event) => {
     event.target.style.background = '';
 })
+
+document.querySelector('label').style.fontSize = '1.5rem';
+const form = document.querySelector('form');
+const formClass = document.querySelector('.form-class');
+
+form.addEventListener('submit', (event) => {
+    if(input.value === '') {
+        event.preventDefault();
+        alert('No destination submitted');
+    } else {
+        alert('submitted!');
+        formClass.reset();
+    }
+})
+
+document.querySelectorAll('.destination .btn').forEach(button => {
+    button.addEventListener('dblclick', event => {
+        alert('A single click will do!');
+    })
+})
+
+window.addEventListener('beforeunload', (event) => {
+    console.log(`Are you sure you want to leave before booking your dream vacation?`);
+});
