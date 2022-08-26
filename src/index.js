@@ -2,6 +2,8 @@ import './less/index.less'
 
 // Your code goes here!
 
+// mouseover
+
 const linkArr = Array.from(document.querySelectorAll('.main-navigation a'));
 
 linkArr.forEach(link => {
@@ -9,6 +11,8 @@ linkArr.forEach(link => {
     event.target.textContent = 'Poof!';
     })
 })
+
+// mouseleave
 
 const homeLink = document.querySelector('.nav a:nth-of-type(1)');
 const aboutLink = document.querySelector('.nav a:nth-of-type(2)');
@@ -28,6 +32,7 @@ contactLink.addEventListener('mouseleave', (event) => {
     contactLink.textContent = 'Contact';
 })
 
+// keydown
 
 const copyright = document.querySelector('footer p');
 
@@ -41,6 +46,7 @@ document.addEventListener('keydown', function(event) {
     } 
 })
 
+// scroll
 
 const mainNav = document.querySelector('.main-navigation');
 
@@ -48,20 +54,35 @@ document.addEventListener('scroll', event => {
     mainNav.style.backgroundColor = '#FFEBCD';
 })
 
+// load
+
 window.addEventListener('load', event => console.log(`Page is loaded!`));
 
-const input = document.querySelector('form #location');
+// submit
 
-input.addEventListener('focus', (event) => {
-    event.target.style.backgroundColor = '#17A2B8';
-})
+const form = document.createElement('form');
+document.querySelector('.content-destination').appendChild(form);
+form.classList.add('form-class');
 
-input.addEventListener('blur', (event) => {
-    event.target.style.background = '';
-})
+const label = document.createElement('label');
+label.textContent = 'Desired Oasis: ';
+label.setAttribute('for', 'location');
+label.style.fontSize = '1.5rem';
+document.querySelector('form').appendChild(label);
+
+const inputText = document.createElement('input');
+inputText.setAttribute('id', 'location');
+inputText.setAttribute('type', 'text');
+document.querySelector('form').appendChild(inputText);
+
+const submitButton = document.createElement('input');
+submitButton.setAttribute('id', 'submit');
+submitButton.setAttribute('type', 'submit');
+document.querySelector('form').appendChild(submitButton);
+
 
 document.querySelector('label').style.fontSize = '1.5rem';
-const form = document.querySelector('form');
+// const form = document.querySelector('form');
 const formClass = document.querySelector('.form-class');
 
 form.addEventListener('submit', (event) => {
@@ -74,11 +95,29 @@ form.addEventListener('submit', (event) => {
     }
 })
 
+// focus
+
+const input = document.querySelector('form #location');
+
+input.addEventListener('focus', (event) => {
+    event.target.style.backgroundColor = '#17A2B8';
+})
+
+// blur
+
+input.addEventListener('blur', (event) => {
+    event.target.style.background = '';
+})
+
+// dblclick
+
 document.querySelectorAll('.destination .btn').forEach(button => {
     button.addEventListener('dblclick', event => {
         alert('A single click will do!');
     })
 })
+
+// beforeunload
 
 window.addEventListener('beforeunload', (event) => {
     console.log(`Are you sure you want to leave before booking your dream vacation?`);
