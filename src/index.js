@@ -58,7 +58,7 @@ document.addEventListener('scroll', event => {
 
 window.addEventListener('load', event => console.log(`Page is loaded!`));
 
-// submit
+// (html and css changed on DOM for functionality below)
 
 const form = document.createElement('form');
 document.querySelector('.content-destination').appendChild(form);
@@ -80,10 +80,15 @@ submitButton.setAttribute('id', 'submit');
 submitButton.setAttribute('type', 'submit');
 document.querySelector('form').appendChild(submitButton);
 
+const section = document.querySelector('.content-destination');
+section.style.display = 'flex';
+section.style.flexDirection = 'column';
+section.style.alignItems = 'center';
 
-document.querySelector('label').style.fontSize = '1.5rem';
-// const form = document.querySelector('form');
 const formClass = document.querySelector('.form-class');
+formClass.style.marginTop = '2%';
+
+// submit
 
 form.addEventListener('submit', (event) => {
     if(input.value === '') {
