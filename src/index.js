@@ -19,7 +19,7 @@ const aboutLink = document.querySelector('.nav a:nth-of-type(2)');
 const blogLink = document.querySelector('.nav a:nth-of-type(3)');
 const contactLink = document.querySelector('.nav a:nth-of-type(4)');
 
-homeLink.addEventListener('mouseleave', (event) => {
+homeLink.addEventListener('mouseleave', () => {
     homeLink.textContent = 'Home';
 })
 aboutLink.addEventListener('mouseleave', (event) => {
